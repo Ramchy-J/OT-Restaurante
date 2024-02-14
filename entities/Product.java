@@ -1,21 +1,23 @@
-package Entities;
+package entities;
 
 import java.util.List;
 
-public class ProductEntity {
-    //Attributes
-    private int productId;
-    private String name;
-    private double price;
-    private String category;
-    private List <String> ingredients;
+public class Product {
 
+    //Attributes
+
+    private Integer productId;
+    private String name;
+    private Double price;
+    private String category;
+    private List <Ingredients> ingredients;
 
     //Constructors
-    public ProductEntity(){
+
+    public Product(){
 
     }
-    public ProductEntity(int productId, String name, double price, String category, List<String> ingredients) {
+    public Product(Integer productId, String name, Double price, String category, List<Ingredients> ingredients) {
         this.productId = productId;
         this.name = name;
         this.price = price;
@@ -23,13 +25,13 @@ public class ProductEntity {
         this.ingredients = ingredients;
     }
 
-
     //Methods
-    public int getProductId() {
+
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
@@ -41,11 +43,11 @@ public class ProductEntity {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -57,11 +59,11 @@ public class ProductEntity {
         this.category = category;
     }
 
-    public List<String> getIngredients() {
+    public List<Ingredients> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(List<Ingredients> ingredients) {
         this.ingredients = ingredients;
     }
 }
