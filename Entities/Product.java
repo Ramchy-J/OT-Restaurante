@@ -2,20 +2,20 @@ package Entities;
 
 import java.util.List;
 
-public class ProductEntity {
+public class Product {
     //Attributes
-    private int productId;
+    private Integer productId;
     private String name;
-    private double price;
+    private Double price;
     private String category;
     private List <String> ingredients;
 
 
     //Constructors
-    public ProductEntity(){
+    public Product(){
 
     }
-    public ProductEntity(int productId, String name, double price, String category, List<String> ingredients) {
+    public Product(Integer productId, String name, Double price, String category, List<String> ingredients) {
         this.productId = productId;
         this.name = name;
         this.price = price;
@@ -29,7 +29,7 @@ public class ProductEntity {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
@@ -45,7 +45,7 @@ public class ProductEntity {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
