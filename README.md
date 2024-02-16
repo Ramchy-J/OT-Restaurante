@@ -5,8 +5,8 @@
 ### Entities
 
 * Product: is a class representing a menu item or product in the restaurant.
-
+* Order: is a class representing a customer order in the restaurant.
 ### UML
 
-![UML](Images/ProductEntity_UML.png)
+![UML](Images/orderEntity_UML.png)
 
