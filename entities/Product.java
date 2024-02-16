@@ -1,21 +1,23 @@
-package Entities;
+package entities;
 
 import java.util.List;
 
 public class Product {
+
     //Attributes
+
     private Integer productId;
     private String name;
     private Double price;
     private String category;
-    private List <String> ingredients;
-
+    private List <Ingredients> ingredients;
 
     //Constructors
+
     public Product(){
 
     }
-    public Product(Integer productId, String name, Double price, String category, List<String> ingredients) {
+    public Product(Integer productId, String name, Double price, String category, List<Ingredients> ingredients) {
         this.productId = productId;
         this.name = name;
         this.price = price;
@@ -23,9 +25,9 @@ public class Product {
         this.ingredients = ingredients;
     }
 
-
     //Methods
-    public int getProductId() {
+
+    public Integer getProductId() {
         return productId;
     }
 
@@ -41,7 +43,7 @@ public class Product {
         this.name = name;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
@@ -57,11 +59,11 @@ public class Product {
         this.category = category;
     }
 
-    public List<String> getIngredients() {
+    public List<Ingredients> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(List<Ingredients> ingredients) {
         this.ingredients = ingredients;
     }
 }
