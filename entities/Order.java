@@ -1,10 +1,12 @@
-package Entities;
+package entities;
 
 import java.util.Date;
 import java.util.List;
 
 public class Order {
+
     //Attributes
+
     private Integer orderId;
     private String customerName;
     private List <Product> items;
@@ -23,7 +25,6 @@ public class Order {
         this.totalAmount = totalAmount;
         this.orderDate = orderDate;
     }
-
 
     //Methods
 

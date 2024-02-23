@@ -6,7 +6,8 @@
 
 * Product: is a class representing a menu item or product in the restaurant.
 * Order: is a class representing a customer order in the restaurant.
+* Ingredient: is a class representing an ingredient used in the restaurant.
 ### UML
 
-![UML](Images/orderEntity_UML.png)
+![UML](Images/ingredientEntity_UML.png)
 
