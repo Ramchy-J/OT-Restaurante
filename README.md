@@ -5,8 +5,8 @@
 ### entities
 
 * Product: is a class representing a menu item or product in the restaurant.
+* Base: is an abstract class representing a base entity for other entities in the system.
 
 ### UML
 
 ![UML](images/1.productEntity_UML.png)
-
