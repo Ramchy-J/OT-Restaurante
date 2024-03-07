@@ -3,44 +3,25 @@ package entities;
 import java.util.Date;
 import java.util.List;
 
-public class Order {
+public class Order extends Base {
     //Attributes
 
-    private Integer orderId;
-    private String customerName;
     private List<Product> items;
     private Double totalAmount;
-    private Date orderDate;
 
     //Constructors
 
     public Order() {
     }
 
-    public Order(Integer orderId, String customerName, List<Product> items, Double totalAmount, Date orderDate) {
-        this.orderId = orderId;
-        this.customerName = customerName;
+    public Order(Integer entityId, String entityName, Date createdDate, Date modifiedDate, List<Product> items, Double totalAmount) {
+        super(entityId, entityName, createdDate, modifiedDate);
         this.items = items;
         this.totalAmount = totalAmount;
-        this.orderDate = orderDate;
     }
 
     //Methods
-    public Integer getOrderId() {
-        return orderId;
-    }
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
 
     public List<Product> getItems() {
         return items;
@@ -48,16 +29,6 @@ public class Order {
 
     public void setItems(List<Product> items) {
         this.items = items;
-    }
-
-    public void addItems(Product item){
-        items.add(item);
-        totalAmount += item.getPrice();
-    }
-
-    public void removeItems(Product item){
-        items.remove(item);
-        totalAmount -= item.getPrice();
     }
 
     public Double getTotalAmount() {
@@ -68,11 +39,9 @@ public class Order {
         this.totalAmount = totalAmount;
     }
 
-    public Date getOrderDate() {
-        return orderDate;
+    public void addItems(Product item){
+        items.add(item);
+        totalAmount += item.getPrice();
     }
 
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
-    }
 }

@@ -1,13 +1,12 @@
 package entities;
 
+import java.util.Date;
 import java.util.List;
 
-public class Product {
+public class Product extends Base{
 
     //Attributes
 
-    private Integer productId;
-    private String name;
     private Double price;
     private String category;
     private List <Ingredients> ingredients;
@@ -17,31 +16,15 @@ public class Product {
     public Product(){
 
     }
-    public Product(Integer productId, String name, Double price, String category, List<Ingredients> ingredients) {
-        this.productId = productId;
-        this.name = name;
+
+    public Product(Integer entityId, String entityName, Date createdDate, Date modifiedDate, Double price, String category, List<Ingredients> ingredients) {
+        super(entityId, entityName, createdDate, modifiedDate);
         this.price = price;
         this.category = category;
         this.ingredients = ingredients;
     }
 
     //Methods
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Double getPrice() {
         return price;
