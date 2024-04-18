@@ -9,4 +9,4 @@
 
 ### UML
 
-![UML](images/1.productEntity_UML.png)
+![UML](images/1.1 productEntity_UML.png)

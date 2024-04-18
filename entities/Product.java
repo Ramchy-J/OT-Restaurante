@@ -1,12 +1,14 @@
 package entities;
 
+import constants.Status;
+
+import java.time.Instant;
 import java.util.List;
 
-public class Product {
+public class Product extends Base{
 
     //Attributes
 
-    private Integer productId;
     private String name;
     private Double price;
     private String category;
@@ -17,8 +19,9 @@ public class Product {
     public Product(){
 
     }
-    public Product(Integer productId, String name, Double price, String category, List<Ingredients> ingredients) {
-        this.productId = productId;
+
+    public Product(Long id, Instant createdDate, Instant updatedDate, Long createdBy, Long updatedBy, Status status, String name, Double price, String category, List<Ingredients> ingredients) {
+        super(id, createdDate, updatedDate, createdBy, updatedBy, status);
         this.name = name;
         this.price = price;
         this.category = category;
@@ -26,14 +29,6 @@ public class Product {
     }
 
     //Methods
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
 
     public String getName() {
         return name;
