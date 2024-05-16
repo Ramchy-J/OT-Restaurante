@@ -7,8 +7,9 @@
 * Product: is a class representing a menu item or product in the restaurant.
 * Base: is an abstract class representing a base entity for other entities in the system.
 * Customer: is a class representing a customer in the restaurant.
+* Order: is a class representing a customer order in the restaurant.
 
 ### UML
 
-![UML](images/1.1 productEntity_UML.png)
+![UML](images/2.2 orderEntity_UML.png)
 
