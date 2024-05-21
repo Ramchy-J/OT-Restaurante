@@ -8,8 +8,9 @@
 * Base: is an abstract class representing a base entity for other entities in the system.
 * Customer: is a class representing a customer in the restaurant.
 * Order: is a class representing a customer order in the restaurant.
+* Ingredient: is a class representing an ingredient used in the restaurant.
 
 ### UML
 
-![UML](images/2.2 orderEntity_UML.png)
+![UML](images/4.4 ingredientEntity_UML.png)
 
