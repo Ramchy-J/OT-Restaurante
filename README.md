@@ -9,8 +9,9 @@
 * Customer: is a class representing a customer in the restaurant.
 * Order: is a class representing a customer order in the restaurant.
 * Ingredient: is a class representing an ingredient used in the restaurant.
+* Queue: is a class representing a queue system in the restaurant.
 
 ### UML
 
-![UML](images/4.4 ingredientEntity_UML.png)
+![UML](images/5.5 queueEntity_UML.png)
 
