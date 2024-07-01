@@ -9,6 +9,7 @@
 * Customer: is a class representing a customer in the restaurant.
 * Order: is a class representing a customer order in the restaurant.
 * Ingredient: is a class representing an ingredient used in the restaurant.
+* Person: is a class to extend to entities with humans being.
 
 ### UML
 
