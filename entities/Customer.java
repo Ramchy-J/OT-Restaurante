@@ -6,11 +6,9 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
-public class Customer extends Base {
+public class Customer extends Person {
     //Attributes
 
-    private String firstName;
-    private String lastName;
     private String phoneNumber;
 
     //Constructors
@@ -19,29 +17,11 @@ public class Customer extends Base {
     }
 
     public Customer(Long id, Instant createdDate, Instant updatedDate, Long createdBy, Long updatedBy, Status status, String firstName, String lastName, String phoneNumber) {
-        super(id, createdDate, updatedDate, createdBy, updatedBy, status);
-        this.firstName = firstName;
-        this.lastName = lastName;
+        super(id, createdDate, updatedDate, createdBy, updatedBy, status, firstName, lastName);
         this.phoneNumber = phoneNumber;
     }
 
     //Methods
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -51,4 +31,5 @@ public class Customer extends Base {
         this.phoneNumber = phoneNumber;
     }
 }
+
 
