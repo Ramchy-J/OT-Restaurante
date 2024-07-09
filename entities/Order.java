@@ -3,14 +3,13 @@ package entities;
 import constants.Status;
 
 import java.time.Instant;
-import java.util.Date;
 import java.util.List;
 
 public class Order extends Base {
     //Attributes
 
     private Customer customerInfo;
-    private List<Product> items;
+    private List<OrderDetail> orderDetails;
     private Double totalAmount;
 
     //Constructors
@@ -18,10 +17,10 @@ public class Order extends Base {
     public Order() {
     }
 
-    public Order(Long id, Instant createdDate, Instant updatedDate, Long createdBy, Long updatedBy, Status status, Customer customerInfo, List<Product> items, Double totalAmount, Date orderDate) {
+    public Order(Long id, Instant createdDate, Instant updatedDate, Long createdBy, Long updatedBy, Status status, Customer customerInfo, List<OrderDetail> orderDetails, Double totalAmount) {
         super(id, createdDate, updatedDate, createdBy, updatedBy, status);
         this.customerInfo = customerInfo;
-        this.items = items;
+        this.orderDetails = orderDetails;
         this.totalAmount = totalAmount;
     }
 
@@ -35,12 +34,12 @@ public class Order extends Base {
         this.customerInfo = customerInfo;
     }
 
-    public List<Product> getItems() {
-        return items;
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
     }
 
-    public void setItems(List<Product> items) {
-        this.items = items;
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 
     public Double getTotalAmount() {
