@@ -11,6 +11,7 @@
 * Ingredient: is a class representing an ingredient used in the restaurant.
 * Person: is a class to extend to entities with humans being.
 * Chef: is a class representing a chef in the restaurant.
+* Changelog: is a class to stored all the changes
 
 ### UML
 
