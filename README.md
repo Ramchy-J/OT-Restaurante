@@ -12,6 +12,7 @@
 * Person: is a class to extend to entities with humans being.
 * Chef: is a class representing a chef in the restaurant.
 * OrderDetails: is a class to handle the details of every order
+* IoCContainer:A container for inversion of control
 
 ### UML
 
