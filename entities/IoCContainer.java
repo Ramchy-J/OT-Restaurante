@@ -1,7 +1,11 @@
 package entities;
 
+import exceptions.*;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+
 /*
 Lines for use the container
 1. IoCContainer ioc = IoCContainer.getInstance();
@@ -15,32 +19,30 @@ public class IoCContainer<T> {
     private static IoCContainer ioc;
     private IoCContainer(){}
     public static IoCContainer getInstance(){
-        if(ioc == null){
-            ioc = new IoCContainer();
-        }return ioc;
+
+        return Optional.ofNullable(ioc).orElseGet(IoCContainer::new);
+
     }
 
     //IoCContainer structure
-    private final Map<String, T> map = new HashMap<String,T>();
+    private final Map<String, T> instancePool = new HashMap<String,T>();
 
-    public void register(String s, T t) throws Exception {
-        if(s == null){
-            throw new Exception("Name can not be null");
-        }
-        if(map.containsKey(s)){
-            throw new Exception(s + "Already exist");
-        }
-        map.put(s,t);
+    public void register(String key, T value) throws Exception {
+
+        Optional.ofNullable(key).orElseThrow(DependencyKeyNullpointerException::new);
+
+        Optional.of(key).map(instancePool::get).orElseThrow(DuplicatedDependencyFoundException::new);
+
+        instancePool.put(key,value);
     }
 
-    public T resolve(String s) throws Exception {
-        if (s == null){
-            throw new Exception(s + "does not exists");
-        }
-        if (!map.containsKey(s)){
-            throw new Exception(s + "does not exists");
-        }
-        return (T)map.get(s);
+    public T resolve(String key) throws Exception {
+
+        Optional.ofNullable(key).orElseThrow(DependencyValueNullpointerException::new);
+
+        Optional.of(key).map(instancePool::get).orElseThrow(DependencyNotFoundException::new);
+
+        return (T) instancePool.get(key);
     }
 
 }
