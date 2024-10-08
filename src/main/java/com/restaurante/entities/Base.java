@@ -1,13 +1,11 @@
-package entities;
+package com.restaurante.entities;
 
 import constants.Status;
-
 import java.time.Instant;
 
 public abstract class Base {
 
-
-    //Attributes
+    // Attributes
 
     private Long id;
     private Instant createdDate;
@@ -16,12 +14,17 @@ public abstract class Base {
     private Long updatedBy;
     private Status status;
 
-    //Constructor
+    // Constructor
 
-    public Base() {
-    }
+    public Base() {}
 
-    public Base(Long id, Instant createdDate, Instant updatedDate, Long createdBy, Long updatedBy, Status status) {
+    public Base(
+            final Long id,
+            final Instant createdDate,
+            final Instant updatedDate,
+            final Long createdBy,
+            final Long updatedBy,
+            final Status status) {
         this.id = id;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
@@ -30,13 +33,13 @@ public abstract class Base {
         this.status = status;
     }
 
-    //Methods
+    // Methods
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -44,7 +47,7 @@ public abstract class Base {
         return createdDate;
     }
 
-    public void setCreatedDate(Instant createdDate) {
+    public void setCreatedDate(final Instant createdDate) {
         this.createdDate = createdDate;
     }
 
@@ -52,7 +55,7 @@ public abstract class Base {
         return updatedDate;
     }
 
-    public void setUpdatedDate(Instant updatedDate) {
+    public void setUpdatedDate(final Instant updatedDate) {
         this.updatedDate = updatedDate;
     }
 
@@ -60,7 +63,7 @@ public abstract class Base {
         return createdBy;
     }
 
-    public void setCreatedBy(Long createdBy) {
+    public void setCreatedBy(final Long createdBy) {
         this.createdBy = createdBy;
     }
 
@@ -68,7 +71,7 @@ public abstract class Base {
         return updatedBy;
     }
 
-    public void setUpdatedBy(Long updatedBy) {
+    public void setUpdatedBy(final Long updatedBy) {
         this.updatedBy = updatedBy;
     }
 
@@ -76,8 +79,7 @@ public abstract class Base {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(final Status status) {
         this.status = status;
     }
 }
-

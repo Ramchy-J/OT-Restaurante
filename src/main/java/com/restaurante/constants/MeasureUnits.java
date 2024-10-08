@@ -1,4 +1,4 @@
-package constants;
+package com.restaurante.constants;
 
 public enum MeasureUnits {
     TABLESPOONS("tbsp"),
@@ -14,7 +14,7 @@ public enum MeasureUnits {
 
     private final String abbreviation;
 
-    MeasureUnits(String abbreviation) {
+    MeasureUnits(final String abbreviation) {
         this.abbreviation = abbreviation;
     }
 
@@ -22,4 +22,3 @@ public enum MeasureUnits {
         return abbreviation;
     }
 }
-

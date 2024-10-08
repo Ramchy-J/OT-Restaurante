@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\constants\MeasureUnits.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\constants\Status.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\entities\Base.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\entities\Chef.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\entities\Customer.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\entities\Ingredients.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\entities\IoCContainer.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\entities\Order.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\entities\OrderDetail.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\entities\Person.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\entities\Product.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\exceptions\DependencyKeyNullpointerException.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\exceptions\DependencyNotFoundException.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\exceptions\DependencyValueNullpointerException.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\exceptions\DuplicatedDependencyFoundException.java">
+</file>
+<file name="C:\Users\Ramon Almonte\IdeaProjects\OT-Restaurante\src\main\java\com\restaurante\main.java">
+</file>
+</checkstyle>

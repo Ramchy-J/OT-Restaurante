@@ -1,8 +1,8 @@
-package exceptions;
+package com.restaurante.exceptions;
 
-//Custom exception
+// Custom exception
 public class DuplicatedDependencyFoundException extends Exception {
-    public DuplicatedDependencyFoundException(){
+    public DuplicatedDependencyFoundException() {
         super("Dependency already exists");
     }
 }

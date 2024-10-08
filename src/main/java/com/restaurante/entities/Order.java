@@ -1,36 +1,44 @@
-package entities;
+package com.restaurante.entities;
 
 import constants.Status;
-
+import entities.Base;
 import java.time.Instant;
 import java.util.List;
 
 public class Order extends Base {
-    //Attributes
+    // Attributes
 
     private Customer customerInfo;
     private List<OrderDetail> orderDetails;
     private Double totalAmount;
 
-    //Constructors
+    // Constructors
 
-    public Order() {
-    }
+    public Order() {}
 
-    public Order(Long id, Instant createdDate, Instant updatedDate, Long createdBy, Long updatedBy, Status status, Customer customerInfo, List<OrderDetail> orderDetails, Double totalAmount) {
+    public Order(
+            final Long id,
+            final Instant createdDate,
+            final Instant updatedDate,
+            final Long createdBy,
+            final Long updatedBy,
+            final Status status,
+            final Customer customerInfo,
+            final List<OrderDetail> orderDetails,
+            final Double totalAmount) {
         super(id, createdDate, updatedDate, createdBy, updatedBy, status);
         this.customerInfo = customerInfo;
         this.orderDetails = orderDetails;
         this.totalAmount = totalAmount;
     }
 
-    //Methods
+    // Methods
 
     public Customer getCustomerInfo() {
         return customerInfo;
     }
 
-    public void setCustomerInfo(Customer customerInfo) {
+    public void setCustomerInfo(final Customer customerInfo) {
         this.customerInfo = customerInfo;
     }
 
@@ -38,7 +46,7 @@ public class Order extends Base {
         return orderDetails;
     }
 
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
+    public void setOrderDetails(final List<OrderDetail> orderDetails) {
         this.orderDetails = orderDetails;
     }
 
@@ -46,8 +54,7 @@ public class Order extends Base {
         return totalAmount;
     }
 
-    public void setTotalAmount(Double totalAmount) {
+    public void setTotalAmount(final Double totalAmount) {
         this.totalAmount = totalAmount;
     }
 }
-

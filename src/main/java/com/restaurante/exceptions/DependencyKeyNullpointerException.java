@@ -1,4 +1,4 @@
-package exceptions;
+package com.restaurante.exceptions;
 
 public class DependencyKeyNullpointerException extends Exception {
     public DependencyKeyNullpointerException() {

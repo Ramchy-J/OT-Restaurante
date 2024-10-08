@@ -1,6 +1,6 @@
-package constants;
+package com.restaurante.constants;
 
-public enum Status{
+public enum Status {
     ORDERED,
     READY,
     DELIVERED,
