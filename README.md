@@ -1,8 +1,15 @@
+
 # OT-Restaurante
 
-## This software is to manage orders and deliveries in a restaurant. With the ability to inventory ingredients, assign the chefs, queue orders and everything that involves managing the process within the restaurant.
+ This software is to manage orders and deliveries in a restaurant. With the ability to inventory ingredients, assign the chefs, queue orders and everything that involves managing the process within the restaurant.
 
-### entities
+## Table of Contents
+
+- [Entities](#Entities)
+- [UML](#UML)
+- [Requirements](#Requirements)
+
+## Entities
 
 * Product: is a class representing a menu item or product in the restaurant.
 * Base: is an abstract class representing a base entity for other entities in the system.
@@ -14,36 +21,39 @@
 * OrderDetails: is a class to handle the details of every order
 * IoCContainer:A container for inversion of control
 
-### UML
+## UML
 
-![UML](src/main/java/com/restaurante/images/4.4 ingredientEntity_UML.png)
+![UML](/com/ot/restaurant/images/4.4%20ingredientEntity_UML.png)
 
-### Adding Maven Plugins for Code Formatting and Static Analysis
+## Requirements
+
+1. ### Adding Maven Plugins for Code Formatting and Static Analysis
 
 Here's how to add Maven plugins for code formatting and static analysis to your project:
 
-You need to add Maven framework to your project, and copy the content you have in the POM.xml that we have in this 
-repository
 
-Can change version as desired, for the spotless and maven-checkstyle-plugin plugins.
-Can change with the actual directory containing your source code.
-For Spotless, this is typically src/main/java.
-Checkstyle is configured by default for SUN rules
+-  You need to add Maven framework to your project, and copy the content you have in the "POM.xml" 
+that we have in this repository
+- Can change version as desired, for the spotless and maven-checkstyle-plugin plugins.
+- Can change with the actual directory containing your source code.
+- For Spotless, this is typically "src/main/java".
+- Checkstyle is configured by a custom google file
 
-### Create cs_suppressions.xml, to suppress some checkstyle functions
+2. ### Spotless configuration
 
-Add the content we have in the cs_suppressions.xml to the file in your project
+Spotless is configured to run with the Google style
 
-### Create a pre-commit file (optional):
+3. ### CheckStyle configuration
 
-Create a file named .pre-commit-hook (or similar) in your project's root directory with the following content:
+Download the file "custom-google-checks.xml" to align with the configuration of spotless
 
-#!/bin/sh
-mvn clean
-mvn spotless:check
-mvn checkstyle:check
+Add the "cs_suppressions.xml" file to your project path in your IDE
 
-This script will run mvn clean, mvn spotless:check, and mvn checkstyle:check before every commit, ensuring your code is formatted and follows coding standards.
+4. ### Download the "pre-commit" file into the git hooks (Example: .git/hooks):
+
+Download the file "pre-commit" and add to the hook path in your IDE
+
+This script will run mvn clean, mvn spotless:apply, and mvn checkstyle:check before every commit, ensuring your code is formatted and follows coding standards.
 
 ### Explanation:
 
