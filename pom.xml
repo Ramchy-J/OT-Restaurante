@@ -27,8 +27,8 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.4.0</version>
                 <configuration>
+                    <configLocation>custom-google-checks.xml</configLocation>
                     <suppressionsLocation>cs_suppressions.xml</suppressionsLocation>
-                    <suppressionsFileExpression>cs.suppressions.file</suppressionsFileExpression>
                 </configuration>
             </plugin>
 
@@ -46,38 +46,12 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <formats>
-                        <!-- you can define as many formats as you want, each is independent -->
-                        <format>
-                            <!-- define the files to apply to -->
-                            <includes>
-                                <include>.gitattributes</include>
-                                <include>.gitignore</include>
-                            </includes>
-                            <!-- define the steps to apply to those files -->
-                            <trimTrailingWhitespace/>
-                            <endWithNewline/>
-                            <indent>
-                                <tabs>true</tabs>
-                                <spacesPerTab>4</spacesPerTab>
-                            </indent>
-                        </format>
-                    </formats>
                     <java>
-                        <includes>
-                            <include>src/main/java/**/*.java</include>
-                            <include>src/test/java/**/*.java</include>
-                        </includes>
-                        <importOrder/>
-                        <removeUnusedImports/>
-                        <toggleOffOn/>
-                        <trimTrailingWhitespace/>
-                        <endWithNewline/>
-                        <indent>
-                            <tabs>true</tabs>
-                            <spacesPerTab>4</spacesPerTab>
-                        </indent>
-                        <palantirJavaFormat/>
+                        <googleJavaFormat>
+                            <style>GOOGLE</style>
+                            <reflowLongStrings>true</reflowLongStrings>
+                            <formatJavadoc>false</formatJavadoc>
+                        </googleJavaFormat>
                     </java>
                 </configuration>
             </plugin>

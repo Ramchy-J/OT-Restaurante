@@ -6,55 +6,55 @@ import java.time.Instant;
 import java.util.List;
 
 public class Order extends Base {
-    // Attributes
+  // Attributes
 
-    private Customer customerInfo;
-    private List<OrderDetail> orderDetails;
-    private Double totalAmount;
+  private Customer customerInfo;
+  private List<OrderDetail> orderDetails;
+  private Double totalAmount;
 
-    // Constructors
+  // Constructors
 
-    public Order() {}
+  public Order() {}
 
-    public Order(
-            final Long id,
-            final Instant createdDate,
-            final Instant updatedDate,
-            final Long createdBy,
-            final Long updatedBy,
-            final Status status,
-            final Customer customerInfo,
-            final List<OrderDetail> orderDetails,
-            final Double totalAmount) {
-        super(id, createdDate, updatedDate, createdBy, updatedBy, status);
-        this.customerInfo = customerInfo;
-        this.orderDetails = orderDetails;
-        this.totalAmount = totalAmount;
-    }
+  public Order(
+      final Long id,
+      final Instant createdDate,
+      final Instant updatedDate,
+      final Long createdBy,
+      final Long updatedBy,
+      final Status status,
+      final Customer customerInfo,
+      final List<OrderDetail> orderDetails,
+      final Double totalAmount) {
+    super(id, createdDate, updatedDate, createdBy, updatedBy, status);
+    this.customerInfo = customerInfo;
+    this.orderDetails = orderDetails;
+    this.totalAmount = totalAmount;
+  }
 
-    // Methods
+  // Methods
 
-    public Customer getCustomerInfo() {
-        return customerInfo;
-    }
+  public Customer getCustomerInfo() {
+    return customerInfo;
+  }
 
-    public void setCustomerInfo(final Customer customerInfo) {
-        this.customerInfo = customerInfo;
-    }
+  public void setCustomerInfo(final Customer customerInfo) {
+    this.customerInfo = customerInfo;
+  }
 
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
-    }
+  public List<OrderDetail> getOrderDetails() {
+    return orderDetails;
+  }
 
-    public void setOrderDetails(final List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
-    }
+  public void setOrderDetails(final List<OrderDetail> orderDetails) {
+    this.orderDetails = orderDetails;
+  }
 
-    public Double getTotalAmount() {
-        return totalAmount;
-    }
+  public Double getTotalAmount() {
+    return totalAmount;
+  }
 
-    public void setTotalAmount(final Double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
+  public void setTotalAmount(final Double totalAmount) {
+    this.totalAmount = totalAmount;
+  }
 }

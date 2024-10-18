@@ -17,34 +17,34 @@ Lines for use the container
  */
 final class IoCContainer<T> {
 
-    // Singleton to instantiate the IoCContainer only once
-    private static IoCContainer ioc;
+  // Singleton to instantiate the IoCContainer only once
+  private static IoCContainer ioc;
 
-    private IoCContainer() {}
+  private IoCContainer() {}
 
-    public static IoCContainer getInstance() {
+  public static IoCContainer getInstance() {
 
-        return Optional.ofNullable(ioc).orElseGet(IoCContainer::new);
-    }
+    return Optional.ofNullable(ioc).orElseGet(IoCContainer::new);
+  }
 
-    // IoCContainer structure
-    private final Map<String, T> instancePool = new HashMap<String, T>();
+  // IoCContainer structure
+  private final Map<String, T> instancePool = new HashMap<String, T>();
 
-    public void register(final String key, final T value) throws Exception {
+  public void register(final String key, final T value) throws Exception {
 
-        Optional.ofNullable(key).orElseThrow(DependencyKeyNullpointerException::new);
+    Optional.ofNullable(key).orElseThrow(DependencyKeyNullpointerException::new);
 
-        Optional.of(key).map(instancePool::get).orElseThrow(DuplicatedDependencyFoundException::new);
+    Optional.of(key).map(instancePool::get).orElseThrow(DuplicatedDependencyFoundException::new);
 
-        instancePool.put(key, value);
-    }
+    instancePool.put(key, value);
+  }
 
-    public T resolve(final String key) throws Exception {
+  public T resolve(final String key) throws Exception {
 
-        Optional.ofNullable(key).orElseThrow(DependencyValueNullpointerException::new);
+    Optional.ofNullable(key).orElseThrow(DependencyValueNullpointerException::new);
 
-        Optional.of(key).map(instancePool::get).orElseThrow(DependencyNotFoundException::new);
+    Optional.of(key).map(instancePool::get).orElseThrow(DependencyNotFoundException::new);
 
-        return (T) instancePool.get(key);
-    }
+    return (T) instancePool.get(key);
+  }
 }

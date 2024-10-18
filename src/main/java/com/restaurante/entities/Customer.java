@@ -5,35 +5,35 @@ import entities.Person;
 import java.time.Instant;
 
 public class Customer extends Person {
-    // Attributes
+  // Attributes
 
-    private String phoneNumber;
+  private String phoneNumber;
 
-    // Constructors
+  // Constructors
 
-    public Customer() {}
+  public Customer() {}
 
-    public Customer(
-            final Long id,
-            final Instant createdDate,
-            final Instant updatedDate,
-            final Long createdBy,
-            final Long updatedBy,
-            final Status status,
-            final String firstName,
-            final String lastName,
-            final String phoneNumber) {
-        super(id, createdDate, updatedDate, createdBy, updatedBy, status, firstName, lastName);
-        this.phoneNumber = phoneNumber;
-    }
+  public Customer(
+      final Long id,
+      final Instant createdDate,
+      final Instant updatedDate,
+      final Long createdBy,
+      final Long updatedBy,
+      final Status status,
+      final String firstName,
+      final String lastName,
+      final String phoneNumber) {
+    super(id, createdDate, updatedDate, createdBy, updatedBy, status, firstName, lastName);
+    this.phoneNumber = phoneNumber;
+  }
 
-    // Methods
+  // Methods
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
 
-    public void setPhoneNumber(final String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+  public void setPhoneNumber(final String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
 }
