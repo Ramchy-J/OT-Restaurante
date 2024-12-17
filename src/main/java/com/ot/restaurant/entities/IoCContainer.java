@@ -24,7 +24,8 @@ final class IoCContainer<T> {
 
   public static IoCContainer getInstance() {
 
-    return Optional.ofNullable(ioc).orElseGet(IoCContainer::new);
+    ioc = Optional.ofNullable(ioc).orElseGet(IoCContainer::new);
+    return ioc;
   }
 
   // IoCContainer structure
@@ -34,7 +35,9 @@ final class IoCContainer<T> {
 
     Optional.ofNullable(key).orElseThrow(DependencyKeyNullpointerException::new);
 
-    Optional.of(key).map(instancePool::get).orElseThrow(DuplicatedDependencyFoundException::new);
+    if (Optional.ofNullable(instancePool.get(key)).isPresent()) {
+      throw new DuplicatedDependencyFoundException();
+    }
 
     instancePool.put(key, value);
   }
