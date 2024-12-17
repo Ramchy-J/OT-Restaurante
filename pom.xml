@@ -15,13 +15,22 @@
         <checkstyle.version>3.4.0</checkstyle.version>
         <spotless.version>2.43.0</spotless.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>Maven</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
