@@ -40,7 +40,7 @@ class IoCContainerTest {
 
     ioc.register(key, value);
 
-    final var valueResolvedIoC = ioc.resolve(key);
+    final var  valueResolvedIoC = ioc.resolve(key);
 
     assertEquals(value, valueResolvedIoC);
   }
