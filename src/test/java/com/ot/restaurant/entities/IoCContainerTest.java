@@ -40,7 +40,7 @@ class IoCContainerTest {
 
     ioc.register(key, value);
 
-    Object valueResolvedIoC = ioc.resolve(key);
+    final var valueResolvedIoC = ioc.resolve(key);
 
     assertEquals(value, valueResolvedIoC);
   }
@@ -62,8 +62,7 @@ class IoCContainerTest {
     assertThrows(
         DependencyKeyNullpointerException.class,
         () -> {
-          String key = null;
-          ioc.register(key, value);
+          ioc.register(key2, value);
         });
   }
 
