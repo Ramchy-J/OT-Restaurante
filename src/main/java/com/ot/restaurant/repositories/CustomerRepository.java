@@ -1,12 +1,21 @@
 package com.ot.restaurant.repositories;
 
 import com.ot.restaurant.entities.Customer;
-
+import com.ot.restaurant.exceptions.CustomerStatusNotActiveException;
+import constants.Status;
 import java.util.List;
+import java.util.Optional;
 
 public interface CustomerRepository {
-    List<Customer> findAll();
-    Customer findById(Long id);
-    void save(Customer customer);
-    void deleteById(Long id);
+  List<Customer> findAll() throws Exception;
+
+  Optional<Customer> findById(Long id, Status status) throws Exception;
+
+  void save(Long id, Customer customer) throws Exception;
+
+  void insert(Customer customer);
+
+  void update(Long id, Customer customer) throws Exception;
+
+  void deleteById(Long id, Customer customer) throws Exception;
 }

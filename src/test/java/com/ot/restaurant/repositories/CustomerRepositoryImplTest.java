@@ -3,6 +3,7 @@ package com.ot.restaurant.repositories;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.ot.restaurant.entities.Customer;
+import com.ot.restaurant.exceptions.CustomerStatusNotActiveException;
 import constants.Status;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,21 +17,21 @@ class CustomerRepositoryImplTest {
   private final String secondName = "Loki2";
   private final String thirdName = "Loki3";
 
-  @BeforeEach
-  void setUp() {
+  private Customer createCustomer(String firstName) {
     Customer customer = new Customer();
     customer.setFirstName(firstName);
-    customerListTest.add(customer);
-    customerRepository.save(customer);
-    customer = new Customer();
-    customer.setFirstName(secondName);
-    customerListTest.add(customer);
-    customerRepository.save(customer);
-    customer = new Customer();
-    customer.setFirstName(thirdName);
-    customerListTest.add(customer);
-    customerRepository.save(customer);
-    // System.out.println(customer);
+    customer.setStatus(Status.ACTIVE);
+    return customer;
+  }
+
+  @BeforeEach
+  void setUp() throws Exception {
+    customerListTest.add(createCustomer("Loki0"));
+    customerRepository.save(customerListTest.get(0).getId(), customerListTest.get(0));
+    customerListTest.add(createCustomer("Loki1"));
+    customerRepository.save(customerListTest.get(1).getId(), customerListTest.get(1));
+    customerListTest.add(createCustomer("Loki2"));
+    customerRepository.save(customerListTest.get(2).getId(), customerListTest.get(2));
   }
 
   @Test
@@ -39,29 +40,51 @@ class CustomerRepositoryImplTest {
   }
 
   @Test
-  void shouldReturnSpecificCustomerWhenFindById() {
+  void shouldReturnSpecificCustomerWhenFindByIdAndStatusActive() throws Exception {
     Customer customer = new Customer();
-    //customer.setFirstName("Samahia");
-    customerRepository.save(customer);
-    assertEquals(customer, customerRepository.findById(customer.getId()));
-    System.out.println(customerRepository.findById(customer.getId()).getFirstName());
+    customer.setFirstName("Samahia");
+    customer.setStatus(Status.DELETED);
+    customerRepository.save(customer.getId(), customer);
+    assertEquals(
+        customer, customerRepository.findById(customer.getId(), customer.getStatus()).get());
+
+    System.out.println(
+        customerRepository.findById(customer.getId(), customer.getStatus()).get().getFirstName());
   }
 
   @Test
-  void shouldSaveCustomerWhenSave() {
+  void shouldThrowsExceptionWhenStatusNotActive() throws Exception {
+    Customer customer = new Customer();
+    customer.setFirstName("Samahia");
+    customerRepository.save(customer.getId(), customer);
+    assertThrows(
+        CustomerStatusNotActiveException.class,
+        () -> {
+          customerRepository.findById(customer.getId(), customer.getStatus());
+        });
+  }
+
+  @Test
+  void shouldSaveCustomerWhenSave() throws Exception {
     Customer customer = new Customer();
     customer.setFirstName("Samahia1");
-    customerRepository.save(customer);
-    assertEquals(customer, customerRepository.findById(customer.getId()));
-    System.out.println(customerRepository.findById(customer.getId()));
+    customer.setStatus(Status.ACTIVE);
+    customerRepository.save(customer.getId(), customer);
+    assertEquals(
+        customer, customerRepository.findById(customer.getId(), customer.getStatus()).get());
+    System.out.println(
+        customerRepository.findById(customer.getId(), customer.getStatus()).get().getFirstName());
   }
 
   @Test
-  void shouldSetStatusToDeletedWhenDeleteById() {
+  void shouldSetStatusToDeletedWhenDeleteById() throws Exception {
     Customer customer = new Customer();
-    customer.setFirstName("Samaia2");
-    customerRepository.save(customer);
-    customerRepository.deleteById(customer.getId());
-    assertEquals(Status.DELETED, customerRepository.findById(customer.getId()).getStatus());
+    customer.setFirstName("Samaia1");
+    customer.setStatus(Status.ACTIVE);
+    customerRepository.save(customer.getId(), customer);
+    customerRepository.deleteById(customer.getId(), customer);
+    assertEquals(
+        Status.DELETED,
+        customerRepository.findById(customer.getId(), customer.getStatus()).get().getStatus());
   }
 }
