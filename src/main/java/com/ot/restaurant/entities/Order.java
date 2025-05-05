@@ -1,7 +1,6 @@
 package com.ot.restaurant.entities;
 
 import constants.Status;
-import entities.Base;
 import java.time.Instant;
 import java.util.List;
 
