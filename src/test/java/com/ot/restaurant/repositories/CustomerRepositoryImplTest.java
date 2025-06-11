@@ -33,6 +33,7 @@ class CustomerRepositoryImplTest {
 
   @Test
   void shouldReturnTheCustomerListWhenFindAll() {
+
     assertEquals(customerListTest, customerRepository.findAll());
   }
 

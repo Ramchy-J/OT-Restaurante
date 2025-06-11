@@ -71,8 +71,4 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     existingCustomer.get().setStatus(Status.DELETED);
     update(id, customer);
   }
-
-  public List<Customer> findAllIncludingDeleted() throws Exception {
-    return customerMap.values().stream().toList();
-  }
 }
