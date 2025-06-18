@@ -3,7 +3,7 @@ package com.ot.restaurant.entities;
 import constants.Status;
 import java.time.Instant;
 
-public class Person extends Base {
+public abstract class Person extends Base {
 
   // Attributes
 
