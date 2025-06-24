@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public class PersonFixture extends BaseFixture {
   public static Person buildDefaultPerson() {
-    Person person = new DummyPersonEntity();
+    final var person = new DummyPersonEntity();
     person.setFirstName("Loki");
     person.setLastName("Samahia");
     person.setStatus(Status.ACTIVE);
@@ -15,7 +15,7 @@ public class PersonFixture extends BaseFixture {
   }
 
   public static Person buildPersonFromExample(Person personExample) {
-    Person person = new DummyPersonEntity();
+    final var person = new DummyPersonEntity();
     person.setFirstName(
         Optional.ofNullable(personExample).map(Person::getFirstName).orElse("Loki"));
     person.setStatus(
