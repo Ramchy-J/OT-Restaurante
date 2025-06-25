@@ -6,14 +6,14 @@ import java.util.Optional;
 
 public class CustomerFixture {
   public static Customer builDefaultCustomer() {
-    Customer customer = new Customer();
-    customer.setFirstName("Loki1");
+    final var customer = new Customer();
+    customer.setFirstName("DefaultName");
     customer.setStatus(Status.ACTIVE);
     return customer;
   }
 
   public static Customer buildCustomerFromExample(Customer customerExample) {
-    Customer customer = new Customer();
+    final var customer = new Customer();
     customer.setFirstName(
         Optional.ofNullable(customerExample).map(Customer::getFirstName).orElse("DefaultName"));
     customer.setStatus(
