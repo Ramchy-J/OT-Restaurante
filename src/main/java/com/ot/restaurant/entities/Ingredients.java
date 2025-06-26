@@ -2,7 +2,6 @@ package com.ot.restaurant.entities;
 
 import constants.MeasureUnits;
 import constants.Status;
-import entities.Base;
 import java.time.Instant;
 
 public class Ingredients extends Base {
