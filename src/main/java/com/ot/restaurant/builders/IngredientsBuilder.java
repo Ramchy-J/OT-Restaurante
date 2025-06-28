@@ -2,10 +2,15 @@ package com.ot.restaurant.builders;
 
 import com.ot.restaurant.entities.Ingredients;
 import constants.MeasureUnits;
+import constants.Status;
 
 public class IngredientsBuilder {
 
   private Ingredients ingredients = new Ingredients();
+
+  public static IngredientsBuilder create() {
+    return new IngredientsBuilder();
+  }
 
   public IngredientsBuilder withName(String name) {
     ingredients.setName(name);
@@ -22,8 +27,12 @@ public class IngredientsBuilder {
     return this;
   }
 
-  public Ingredients build() {
+  public IngredientsBuilder withStatus(Status status) {
+    ingredients.setStatus(status);
+    return this;
+  }
 
+  public Ingredients build() {
     return ingredients;
   }
 }

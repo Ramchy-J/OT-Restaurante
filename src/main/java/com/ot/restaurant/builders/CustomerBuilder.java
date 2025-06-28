@@ -6,6 +6,10 @@ import constants.Status;
 public class CustomerBuilder {
   private Customer customer = new Customer();
 
+  public static CustomerBuilder create() {
+    return new CustomerBuilder();
+  }
+
   public CustomerBuilder() {}
 
   public CustomerBuilder withID(Long id) {
