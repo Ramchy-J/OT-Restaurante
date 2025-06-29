@@ -72,6 +72,4 @@ public abstract class GenericRepositoryImpl<E extends com.ot.restaurant.entities
     existingType.get().setStatus(Status.DELETED);
     update(id, entity);
   }
-
-  public static class GenericRepositoryImplHelper extends GenericRepositoryImpl {}
 }

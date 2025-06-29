@@ -11,7 +11,7 @@ import java.util.Optional;
 public class ProductFixture {
   public static Product buildDefaultProduct() {
     final List<Ingredients> ingredients =
-        List.of(new IngredientsBuilder().withName("Default").build());
+        List.of(IngredientsBuilder.create().withName("Default").build());
     final var product =
         ProductBuilder.create()
             .withName("Default")
