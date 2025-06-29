@@ -1,16 +1,13 @@
 package com.ot.restaurant.entities;
 
 import constants.Status;
-import entities.Base;
-import entities.Order;
-import entities.Product;
 import java.time.Instant;
 
 public class OrderDetail extends Base {
 
   // Attributes
-  private entities.Order order;
-  private entities.Product product;
+  private com.ot.restaurant.entities.Order order;
+  private com.ot.restaurant.entities.Product product;
   private Integer quantity;
   private Double unitPrice;
   private Double discount;
@@ -26,8 +23,8 @@ public class OrderDetail extends Base {
       final Long createdBy,
       final Long updatedBy,
       final Status status,
-      final entities.Order order,
-      final entities.Product product,
+      final com.ot.restaurant.entities.Order order,
+      final com.ot.restaurant.entities.Product product,
       final Integer quantity,
       final Double unitPrice,
       final Double discount) {
@@ -41,7 +38,7 @@ public class OrderDetail extends Base {
 
   // Methods
 
-  public entities.Order getOrder() {
+  public com.ot.restaurant.entities.Order getOrder() {
     return order;
   }
 
@@ -49,7 +46,7 @@ public class OrderDetail extends Base {
     this.order = order;
   }
 
-  public entities.Product getProduct() {
+  public com.ot.restaurant.entities.Product getProduct() {
     return product;
   }
 

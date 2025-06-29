@@ -23,10 +23,12 @@ class GenericRepositoryImplTest {
 
     final var entities =
         List.of(
-            BaseFixture.buildBaseFromExample(new DummyGenericBuilder().withCreatedBy(123L).build()),
-            BaseFixture.buildBaseFromExample(new DummyGenericBuilder().withCreatedBy(456L).build()),
             BaseFixture.buildBaseFromExample(
-                new DummyGenericBuilder().withCreatedBy(789L).build()));
+                DummyGenericBuilder.create().withCreatedBy(123L).build()),
+            BaseFixture.buildBaseFromExample(
+                DummyGenericBuilder.create().withCreatedBy(456L).build()),
+            BaseFixture.buildBaseFromExample(
+                DummyGenericBuilder.create().withCreatedBy(789L).build()));
 
     entities.forEach(genericRepository::insert);
     genericListTest.addAll(entities);
@@ -58,7 +60,7 @@ class GenericRepositoryImplTest {
   @Test
   void shouldAddGenericWhenInsert() throws Exception {
     final var newGeneric =
-        BaseFixture.buildBaseFromExample(new DummyGenericBuilder().withCreatedBy(159L).build());
+        BaseFixture.buildBaseFromExample(DummyGenericBuilder.create().withCreatedBy(159L).build());
     genericRepository.insert(newGeneric);
     final var existingGeneric = genericRepository.findAll();
 

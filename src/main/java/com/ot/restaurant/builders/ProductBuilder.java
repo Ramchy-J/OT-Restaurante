@@ -32,13 +32,12 @@ public class ProductBuilder {
     return this;
   }
 
-  public ProductBuilder withstatus(Status status) {
+  public ProductBuilder withStatus(Status status) {
     product.setStatus(status);
     return this;
   }
 
   public Product build() {
-
     return product;
   }
 }

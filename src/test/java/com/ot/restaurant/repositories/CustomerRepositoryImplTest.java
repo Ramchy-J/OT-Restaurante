@@ -22,11 +22,11 @@ class CustomerRepositoryImplTest {
     final var customers =
         List.of(
             CustomerFixture.buildCustomerFromExample(
-                new CustomerBuilder().withFirstName("Loki1").build()),
+                CustomerBuilder.create().withFirstName("Loki1").build()),
             CustomerFixture.buildCustomerFromExample(
-                new CustomerBuilder().withFirstName("Loki2").build()),
+                CustomerBuilder.create().withFirstName("Loki2").build()),
             CustomerFixture.buildCustomerFromExample(
-                new CustomerBuilder().withFirstName("Loki3").build()));
+                CustomerBuilder.create().withFirstName("Loki3").build()));
     customers.forEach(customerRepository::insert);
     customerListTest.addAll(customers);
   }
@@ -56,10 +56,10 @@ class CustomerRepositoryImplTest {
 
   @Test
   void shouldAddCustomerWhenInsert() throws Exception {
-    final var customer =
+    final var newCustomer =
         CustomerFixture.buildCustomerFromExample(
-            new CustomerBuilder().withFirstName("Samahia").build());
-    customerRepository.insert(customer);
+            CustomerBuilder.create().withFirstName("Samahia").build());
+    customerRepository.insert(newCustomer);
     final var existingCustomers = customerRepository.findAll();
 
     assertEquals(

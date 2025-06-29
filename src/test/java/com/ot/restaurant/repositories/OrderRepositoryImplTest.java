@@ -27,21 +27,21 @@ class OrderRepositoryImplTest {
     final var customers =
         List.of(
             CustomerFixture.buildCustomerFromExample(
-                new CustomerBuilder().withFirstName("Loki1").build()),
+                CustomerBuilder.create().withFirstName("Loki1").build()),
             CustomerFixture.buildCustomerFromExample(
-                new CustomerBuilder().withFirstName("Loki2").build()),
+                CustomerBuilder.create().withFirstName("Loki2").build()),
             CustomerFixture.buildCustomerFromExample(
-                new CustomerBuilder().withFirstName("Loki3").build()));
+                CustomerBuilder.create().withFirstName("Loki3").build()));
     customerListTest.addAll(customers);
 
     final var orders =
         List.of(
             OrderFixture.buildOrderFromExample(
-                new OrderBuilder().withCustomerInfo(customerListTest.get(0)).build()),
+                OrderBuilder.create().withCustomerInfo(customerListTest.get(0)).build()),
             OrderFixture.buildOrderFromExample(
-                new OrderBuilder().withCustomerInfo(customerListTest.get(1)).build()),
+                OrderBuilder.create().withCustomerInfo(customerListTest.get(1)).build()),
             OrderFixture.buildOrderFromExample(
-                new OrderBuilder().withCustomerInfo(customerListTest.get(2)).build()));
+                OrderBuilder.create().withCustomerInfo(customerListTest.get(2)).build()));
     orders.forEach(orderRepository::insert);
     orderListTest.addAll(orders);
   }
@@ -74,10 +74,11 @@ class OrderRepositoryImplTest {
   void shouldAddOrderWhenInsert() throws Exception {
     final var customer =
         CustomerFixture.buildCustomerFromExample(
-            new CustomerBuilder().withFirstName("Loki4").build());
-    final var order =
-        OrderFixture.buildOrderFromExample(new OrderBuilder().withCustomerInfo(customer).build());
-    orderRepository.insert(order);
+            CustomerBuilder.create().withFirstName("Loki4").build());
+    final var newOrder =
+        OrderFixture.buildOrderFromExample(
+            OrderBuilder.create().withCustomerInfo(customer).build());
+    orderRepository.insert(newOrder);
     final var existingOrders = orderRepository.findAll();
 
     assertEquals(

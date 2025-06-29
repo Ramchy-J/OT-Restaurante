@@ -22,11 +22,11 @@ class ProductRepositoryImplTest {
     final var products =
         List.of(
             ProductFixture.buildProductFromExample(
-                new ProductBuilder().withName("Default1").build()),
+                ProductBuilder.create().withName("Default1").build()),
             ProductFixture.buildProductFromExample(
-                new ProductBuilder().withName("Default2").build()),
+                ProductBuilder.create().withName("Default2").build()),
             ProductFixture.buildProductFromExample(
-                new ProductBuilder().withName("Default3").build()));
+                ProductBuilder.create().withName("Default3").build()));
     products.forEach(productRepository::insert);
     productListTest.addAll(products);
   }
@@ -56,9 +56,10 @@ class ProductRepositoryImplTest {
 
   @Test
   void shouldAddProductWhenInsert() throws Exception {
-    final var product =
-        ProductFixture.buildProductFromExample(new ProductBuilder().withName("Default4").build());
-    productRepository.insert(product);
+    final var newProduct =
+        ProductFixture.buildProductFromExample(
+            ProductBuilder.create().withName("Default4").build());
+    productRepository.insert(newProduct);
     final var existingProducts = productRepository.findAll();
 
     assertEquals(
