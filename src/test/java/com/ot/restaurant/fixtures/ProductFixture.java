@@ -18,7 +18,7 @@ public class ProductFixture {
             .withPrice(10.0)
             .withCategory("DefaultCategory")
             .withIngredients(ingredients)
-            .withstatus(Status.ACTIVE)
+            .withStatus(Status.ACTIVE)
             .build();
     return product;
   }
@@ -27,7 +27,7 @@ public class ProductFixture {
     final var product =
         ProductBuilder.create()
             .withName(Optional.ofNullable(productExample).map(Product::getName).orElse("Default"))
-            .withstatus(
+            .withStatus(
                 Optional.ofNullable(productExample).map(Product::getStatus).orElse(Status.ACTIVE))
             .build();
     return product;

@@ -23,11 +23,11 @@ public class PersonRepositoryImplTest {
     final var entities =
         List.of(
             PersonFixture.buildPersonFromExample(
-                new DummyPersonBuilder().withFirstName("Loki1").build()),
+                DummyPersonBuilder.create().withFirstName("Loki1").build()),
             PersonFixture.buildPersonFromExample(
-                new DummyPersonBuilder().withFirstName("Loki2").build()),
+                DummyPersonBuilder.create().withFirstName("Loki2").build()),
             PersonFixture.buildPersonFromExample(
-                new DummyPersonBuilder().withFirstName("Loki3").build()));
+                DummyPersonBuilder.create().withFirstName("Loki3").build()));
 
     entities.forEach(personRepository::insert);
     personListTest.addAll(entities);
@@ -60,7 +60,7 @@ public class PersonRepositoryImplTest {
   void shouldAddGenericWhenInsert() throws Exception {
     final var newPerson =
         PersonFixture.buildPersonFromExample(
-            new DummyPersonBuilder().withFirstName("Loki4").build());
+            DummyPersonBuilder.create().withFirstName("Loki4").build());
     personRepository.insert(newPerson);
     final var existingGeneric = personRepository.findAll();
 

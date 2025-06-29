@@ -24,11 +24,11 @@ class IngredientsRepositoryImplTest {
     final var ingredients =
         List.of(
             IngredientsFixture.buildIngredientsFromExample(
-                new IngredientsBuilder().withName("Default1").build()),
+                IngredientsBuilder.create().withName("Default1").build()),
             IngredientsFixture.buildIngredientsFromExample(
-                new IngredientsBuilder().withName("Default2").build()),
+                IngredientsBuilder.create().withName("Default2").build()),
             IngredientsFixture.buildIngredientsFromExample(
-                new IngredientsBuilder().withName("Default3").build()));
+                IngredientsBuilder.create().withName("Default3").build()));
     ingredients.forEach(ingredientsRepository::insert);
     ingredientsListTest.addAll(ingredients);
   }
@@ -59,10 +59,10 @@ class IngredientsRepositoryImplTest {
 
   @Test
   void shouldAddOrderWhenInsert() throws Exception {
-    final var ingredient =
+    final var newIngredient =
         IngredientsFixture.buildIngredientsFromExample(
-            new IngredientsBuilder().withName("Default4").build());
-    ingredientsRepository.insert(ingredient);
+            IngredientsBuilder.create().withName("Default4").build());
+    ingredientsRepository.insert(newIngredient);
     final var existingIngredient = ingredientsRepository.findAll();
 
     assertEquals(
