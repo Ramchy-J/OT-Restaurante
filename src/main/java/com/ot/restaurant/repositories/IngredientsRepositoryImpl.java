@@ -1,7 +1,7 @@
 package com.ot.restaurant.repositories;
 
 import com.ot.restaurant.entities.Ingredients;
-import com.ot.restaurant.exceptions.CustomerNotFoundException;
+import com.ot.restaurant.exceptions.IngredientsNotFoundException;
 import java.util.Optional;
 
 public class IngredientsRepositoryImpl<E extends Ingredients> extends GenericRepositoryImpl<E> {
@@ -10,7 +10,7 @@ public class IngredientsRepositoryImpl<E extends Ingredients> extends GenericRep
     super.update(id, updatedIngredients);
 
     var existingIngredients =
-        findById(id, updatedIngredients.getStatus()).orElseThrow(CustomerNotFoundException::new);
+        findById(id, updatedIngredients.getStatus()).orElseThrow(IngredientsNotFoundException::new);
     existingIngredients.setName(
         Optional.ofNullable(updatedIngredients)
             .map(Ingredients::getName)

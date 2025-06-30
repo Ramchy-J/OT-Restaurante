@@ -1,7 +1,7 @@
 package com.ot.restaurant.repositories;
 
 import com.ot.restaurant.entities.OrderDetail;
-import com.ot.restaurant.exceptions.CustomerNotFoundException;
+import com.ot.restaurant.exceptions.OrderDetailNotFoundException;
 import java.util.Optional;
 
 public class OrderDetailRepositoryImpl<E extends OrderDetail> extends GenericRepositoryImpl<E> {
@@ -10,7 +10,7 @@ public class OrderDetailRepositoryImpl<E extends OrderDetail> extends GenericRep
     super.update(id, updatedOrderDetail);
 
     var existingOrderDetail =
-        findById(id, updatedOrderDetail.getStatus()).orElseThrow(CustomerNotFoundException::new);
+        findById(id, updatedOrderDetail.getStatus()).orElseThrow(OrderDetailNotFoundException::new);
     existingOrderDetail.setOrder(
         Optional.ofNullable(updatedOrderDetail)
             .map(OrderDetail::getOrder)

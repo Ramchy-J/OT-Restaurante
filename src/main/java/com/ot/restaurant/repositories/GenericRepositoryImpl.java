@@ -1,6 +1,5 @@
 package com.ot.restaurant.repositories;
 
-import com.ot.restaurant.exceptions.CustomerNotFoundException;
 import com.ot.restaurant.exceptions.IdNullException;
 import constants.Status;
 import java.time.Instant;
@@ -28,9 +27,7 @@ public abstract class GenericRepositoryImpl<E extends com.ot.restaurant.entities
   public Optional<E> findById(Long id, Status status) throws Exception {
     Optional.ofNullable(id).orElseThrow(IdNullException::new);
 
-    return Optional.ofNullable(treeMapDataStore.get(id))
-        .map(Optional::of)
-        .orElseThrow(CustomerNotFoundException::new);
+    return Optional.ofNullable(treeMapDataStore.get(id)).map(Optional::of).orElseThrow(null);
   }
 
   public void insert(E entity) {
@@ -48,8 +45,7 @@ public abstract class GenericRepositoryImpl<E extends com.ot.restaurant.entities
   }
 
   public void update(Long id, E updatedEntity) throws Exception {
-    var existingEntity =
-        findById(id, updatedEntity.getStatus()).orElseThrow(CustomerNotFoundException::new);
+    var existingEntity = findById(id, updatedEntity.getStatus()).orElseThrow(null);
 
     existingEntity.setUpdatedBy(
         Optional.ofNullable(updatedEntity)
