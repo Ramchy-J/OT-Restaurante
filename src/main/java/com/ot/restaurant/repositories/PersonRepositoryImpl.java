@@ -1,7 +1,6 @@
 package com.ot.restaurant.repositories;
 
 import com.ot.restaurant.entities.Person;
-import com.ot.restaurant.exceptions.CustomerNotFoundException;
 import java.util.Optional;
 
 public abstract class PersonRepositoryImpl<P extends com.ot.restaurant.entities.Person>
@@ -11,8 +10,7 @@ public abstract class PersonRepositoryImpl<P extends com.ot.restaurant.entities.
 
     super.update(id, updatedEntity);
 
-    var existingType =
-        findById(id, updatedEntity.getStatus()).orElseThrow(CustomerNotFoundException::new);
+    var existingType = findById(id, updatedEntity.getStatus()).orElseThrow(null);
     existingType.setFirstName(
         Optional.ofNullable(updatedEntity)
             .map(com.ot.restaurant.entities.Person::getFirstName)
