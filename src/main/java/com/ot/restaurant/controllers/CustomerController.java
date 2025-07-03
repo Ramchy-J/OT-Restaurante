@@ -1,10 +1,10 @@
 package com.ot.restaurant.controllers;
 
 import com.ot.restaurant.entities.Customer;
+import com.ot.restaurant.exceptions.CustomerNotFoundException;
 import com.ot.restaurant.repositories.CustomerRepository;
 import constants.Status;
 import java.util.List;
-import java.util.Optional;
 
 public class CustomerController {
   private CustomerRepository customerRepository;
@@ -17,8 +17,8 @@ public class CustomerController {
     return customerRepository.findAll();
   }
 
-  public Optional<Customer> findById(Long id, Status status) throws Exception {
-    return customerRepository.findById(id, status);
+  public Customer findById(Long id, Status status) throws Exception {
+    return customerRepository.findById(id, status).orElseThrow(CustomerNotFoundException::new);
   }
 
   public void insert(Customer customer) {
