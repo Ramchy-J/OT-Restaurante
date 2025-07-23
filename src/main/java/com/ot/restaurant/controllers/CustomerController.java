@@ -1,9 +1,9 @@
 package com.ot.restaurant.controllers;
 
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Customer;
 import com.ot.restaurant.exceptions.CustomerNotFoundException;
 import com.ot.restaurant.repositories.CustomerRepository;
-import constants.Status;
 import java.util.List;
 
 public class CustomerController {

@@ -3,10 +3,10 @@ package com.ot.restaurant.repositories;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.ot.restaurant.builders.ProductBuilder;
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Product;
 import com.ot.restaurant.exceptions.IdNullException;
 import com.ot.restaurant.fixtures.ProductFixture;
-import constants.Status;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;

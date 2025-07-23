@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.ot.restaurant.builders.DummyPersonBuilder;
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Person;
 import com.ot.restaurant.exceptions.IdNullException;
 import com.ot.restaurant.fixtures.PersonFixture;
-import constants.Status;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;

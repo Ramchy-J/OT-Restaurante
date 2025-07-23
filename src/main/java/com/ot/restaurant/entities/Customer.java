@@ -1,7 +1,6 @@
 package com.ot.restaurant.entities;
 
-import constants.Status;
-import entities.Person;
+import com.ot.restaurant.constants.Status;
 import java.time.Instant;
 
 public class Customer extends Person {

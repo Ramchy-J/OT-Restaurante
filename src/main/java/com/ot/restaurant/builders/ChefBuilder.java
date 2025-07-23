@@ -1,7 +1,7 @@
 package com.ot.restaurant.builders;
 
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Chef;
-import constants.Status;
 
 public class ChefBuilder {
   private Chef chef = new Chef();

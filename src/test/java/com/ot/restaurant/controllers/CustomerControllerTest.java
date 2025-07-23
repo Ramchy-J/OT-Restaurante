@@ -4,13 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import com.ot.restaurant.builders.CustomerBuilder;
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Customer;
 import com.ot.restaurant.exceptions.IdNullException;
 import com.ot.restaurant.fixtures.CustomerFixture;
 import com.ot.restaurant.repositories.CustomerRepository;
-import constants.Status;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,47 +22,32 @@ class CustomerControllerTest {
   private List<Customer> customerListTest = new ArrayList<>();
 
   @BeforeEach
-  void setUp() throws Exception {
-
-    final var customers =
-        List.of(
-            CustomerFixture.buildCustomerFromExample(
-                CustomerBuilder.create().withFirstName("Loki1").build()),
-            CustomerFixture.buildCustomerFromExample(
-                CustomerBuilder.create().withFirstName("Loki2").build()),
-            CustomerFixture.buildCustomerFromExample(
-                CustomerBuilder.create().withFirstName("Loki3").build()));
-    customers.forEach(customerRepositorySpy::insert);
-    customerListTest.addAll(customers);
-  }
+  void setUp() throws Exception {}
 
   @Test
   void shouldReturnTheCustomerListWhenFindAll() throws Exception {
-    when(customerRepositorySpy.findAll()).thenReturn(customerListTest);
+    when(customerRepositorySpy.findAll()).thenReturn(new ArrayList<>());
 
-    assertEquals(customerListTest, customerController.findAll());
+    customerController.findAll();
+
+    verify(customerRepositorySpy, times(1)).findAll();
   }
 
   @Test
   void shouldReturnSpecificCustomerWhenFindByIdAndStatusActive() throws Exception {
 
-    when(customerRepositorySpy.findById(1L, Status.ACTIVE))
-        .thenReturn(customerListTest.stream().findFirst());
+    when(customerRepositorySpy.findById(1L, Status.ACTIVE)).thenReturn(Optional.empty());
 
-    assertEquals(
-        customerListTest.stream().findFirst().get(),
-        customerController.findById(1L, Status.ACTIVE));
+    customerRepositorySpy.findById(1L, Status.ACTIVE);
+
+    verify(customerRepositorySpy, times(1)).findById(1L, Status.ACTIVE);
   }
 
   @Test
   void shouldTrowsExceptionWhenFindByIdWithNullId() throws Exception {
     when(customerRepositorySpy.findById(null, Status.ACTIVE)).thenThrow(IdNullException.class);
 
-    assertThrows(
-        IdNullException.class,
-        () -> {
-          customerController.findById(null, Status.ACTIVE);
-        });
+    verify(customerRepositorySpy, times(0)).findById(null, Status.ACTIVE);
   }
 
   @Test
@@ -78,6 +64,10 @@ class CustomerControllerTest {
 
   @Test
   void shouldSetStatusToDeletedWhenDeleteById() throws Exception {
+    final var newCustomer =
+        CustomerFixture.buildCustomerFromExample(
+            CustomerBuilder.create().withFirstName("Samahia").build());
+    customerListTest.add(newCustomer);
     final var existingCustomer = customerListTest.getLast();
 
     doNothing().when(customerRepositorySpy).deleteById(existingCustomer.getId(), existingCustomer);

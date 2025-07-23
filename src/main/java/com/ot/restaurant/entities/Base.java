@@ -1,6 +1,6 @@
 package com.ot.restaurant.entities;
 
-import constants.Status;
+import com.ot.restaurant.constants.Status;
 import java.time.Instant;
 
 public abstract class Base {

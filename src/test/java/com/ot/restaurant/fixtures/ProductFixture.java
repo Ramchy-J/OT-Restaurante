@@ -2,9 +2,9 @@ package com.ot.restaurant.fixtures;
 
 import com.ot.restaurant.builders.IngredientsBuilder;
 import com.ot.restaurant.builders.ProductBuilder;
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Ingredients;
 import com.ot.restaurant.entities.Product;
-import constants.Status;
 import java.util.List;
 import java.util.Optional;
 

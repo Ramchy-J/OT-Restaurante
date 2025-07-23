@@ -1,8 +1,8 @@
 package com.ot.restaurant.fixtures;
 
 import com.ot.restaurant.builders.ChefBuilder;
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Chef;
-import constants.Status;
 import java.util.Optional;
 
 public class ChefFixture {

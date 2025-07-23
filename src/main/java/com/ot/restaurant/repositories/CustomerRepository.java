@@ -1,7 +1,7 @@
 package com.ot.restaurant.repositories;
 
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Customer;
-import constants.Status;
 import java.util.List;
 import java.util.Optional;
 

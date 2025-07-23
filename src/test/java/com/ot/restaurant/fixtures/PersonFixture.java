@@ -1,8 +1,8 @@
 package com.ot.restaurant.fixtures;
 
 import com.ot.restaurant.builders.DummyPersonBuilder;
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Person;
-import constants.Status;
 import java.util.Optional;
 
 public class PersonFixture extends BaseFixture {
