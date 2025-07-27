@@ -1,8 +1,8 @@
 package com.ot.restaurant.builders;
 
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.DummyPersonEntity;
 import com.ot.restaurant.entities.Person;
-import constants.Status;
 
 public class DummyPersonBuilder extends DummyGenericBuilder {
   private Person person = new DummyPersonEntity();

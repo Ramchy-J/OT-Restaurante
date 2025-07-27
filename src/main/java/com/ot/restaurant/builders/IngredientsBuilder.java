@@ -1,8 +1,8 @@
 package com.ot.restaurant.builders;
 
+import com.ot.restaurant.constants.MeasureUnits;
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Ingredients;
-import constants.MeasureUnits;
-import constants.Status;
 
 public class IngredientsBuilder {
 

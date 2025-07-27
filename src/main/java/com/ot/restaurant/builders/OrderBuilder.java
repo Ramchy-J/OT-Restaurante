@@ -1,9 +1,9 @@
 package com.ot.restaurant.builders;
 
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Customer;
 import com.ot.restaurant.entities.Order;
 import com.ot.restaurant.entities.OrderDetail;
-import constants.Status;
 import java.util.List;
 
 public class OrderBuilder {

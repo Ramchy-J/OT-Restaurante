@@ -1,8 +1,8 @@
 package com.ot.restaurant.builders;
 
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Ingredients;
 import com.ot.restaurant.entities.Product;
-import constants.Status;
 import java.util.List;
 
 public class ProductBuilder {

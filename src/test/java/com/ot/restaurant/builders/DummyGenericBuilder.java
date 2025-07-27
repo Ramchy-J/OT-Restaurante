@@ -1,8 +1,8 @@
 package com.ot.restaurant.builders;
 
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Base;
 import com.ot.restaurant.entities.DummyBaseEntity;
-import constants.Status;
 import java.time.Instant;
 
 public class DummyGenericBuilder {

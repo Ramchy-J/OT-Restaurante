@@ -4,12 +4,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.ot.restaurant.builders.CustomerBuilder;
 import com.ot.restaurant.builders.OrderBuilder;
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Customer;
 import com.ot.restaurant.entities.Order;
 import com.ot.restaurant.exceptions.IdNullException;
 import com.ot.restaurant.fixtures.CustomerFixture;
 import com.ot.restaurant.fixtures.OrderFixture;
-import constants.Status;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;

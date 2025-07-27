@@ -1,7 +1,7 @@
 package com.ot.restaurant.builders;
 
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Customer;
-import constants.Status;
 
 public class CustomerBuilder {
   private Customer customer = new Customer();

@@ -1,9 +1,9 @@
 package com.ot.restaurant.repositories;
 
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.Customer;
 import com.ot.restaurant.exceptions.CustomerNotFoundException;
 import com.ot.restaurant.exceptions.IdNullException;
-import constants.Status;
 import java.util.List;
 import java.util.Optional;
 import java.util.TreeMap;

@@ -3,8 +3,8 @@ package com.ot.restaurant.fixtures;
 import com.ot.restaurant.builders.OrderBuilder;
 import com.ot.restaurant.builders.OrderDetailBuilder;
 import com.ot.restaurant.builders.ProductBuilder;
+import com.ot.restaurant.constants.Status;
 import com.ot.restaurant.entities.OrderDetail;
-import constants.Status;
 import java.util.Optional;
 
 public class OrderDetailFixture {
