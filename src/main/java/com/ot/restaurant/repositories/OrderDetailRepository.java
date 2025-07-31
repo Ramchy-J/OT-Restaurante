@@ -1,3 +1,5 @@
 package com.ot.restaurant.repositories;
 
-public interface OrderDetailRepository {}
+import com.ot.restaurant.entities.OrderDetail;
+
+public interface OrderDetailRepository<E extends OrderDetail> extends GenericRepository<E> {}
