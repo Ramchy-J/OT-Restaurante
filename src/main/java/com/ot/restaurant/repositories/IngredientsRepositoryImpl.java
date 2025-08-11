@@ -4,7 +4,8 @@ import com.ot.restaurant.entities.Ingredients;
 import com.ot.restaurant.exceptions.IngredientsNotFoundException;
 import java.util.Optional;
 
-public class IngredientsRepositoryImpl<E extends Ingredients> extends GenericRepositoryImpl<E> {
+public class IngredientsRepositoryImpl<E extends Ingredients> extends GenericRepositoryImpl<E>
+    implements IngredientsRepository<E> {
   public void update(Long id, E updatedIngredients) throws Exception {
 
     super.update(id, updatedIngredients);

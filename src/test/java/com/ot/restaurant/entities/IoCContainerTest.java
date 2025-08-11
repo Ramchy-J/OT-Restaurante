@@ -7,6 +7,7 @@ import com.ot.restaurant.exceptions.DependencyKeyNullpointerException;
 import com.ot.restaurant.exceptions.DependencyNotFoundException;
 import com.ot.restaurant.exceptions.DependencyValueNullpointerException;
 import com.ot.restaurant.exceptions.DuplicatedDependencyFoundException;
+import com.ot.restaurant.ioc.IoCContainer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

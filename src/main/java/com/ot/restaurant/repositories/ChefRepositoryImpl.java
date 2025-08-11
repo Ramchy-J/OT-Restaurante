@@ -4,7 +4,8 @@ import com.ot.restaurant.entities.Chef;
 import com.ot.restaurant.exceptions.ChefNotFoundException;
 import java.util.Optional;
 
-public class ChefRepositoryImpl<E extends Chef> extends PersonRepositoryImpl<E> {
+public class ChefRepositoryImpl<E extends Chef> extends PersonRepositoryImpl<E>
+    implements ChefRepository<E> {
   public void update(Long id, E updatedChef) throws Exception {
 
     super.update(id, updatedChef);
