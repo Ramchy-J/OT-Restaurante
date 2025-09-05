@@ -1,4 +1,4 @@
-package com.ot.restaurant.entities;
+package com.ot.restaurant.ioc;
 
 import com.ot.restaurant.exceptions.DependencyKeyNullpointerException;
 import com.ot.restaurant.exceptions.DependencyNotFoundException;
@@ -15,7 +15,7 @@ Lines for use the container
 3. Entitie_name any_name = (Entitie_name)ioc.Resolve("Entitie_name");
 4. Now you can use the name used in any_name for to the methodes of the entitie
  */
-final class IoCContainer<T> {
+public final class IoCContainer<T> {
 
   // Singleton to instantiate the IoCContainer only once
   private static IoCContainer ioc;

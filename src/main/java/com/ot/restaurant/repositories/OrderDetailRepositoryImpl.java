@@ -4,7 +4,8 @@ import com.ot.restaurant.entities.OrderDetail;
 import com.ot.restaurant.exceptions.OrderDetailNotFoundException;
 import java.util.Optional;
 
-public class OrderDetailRepositoryImpl<E extends OrderDetail> extends GenericRepositoryImpl<E> {
+public class OrderDetailRepositoryImpl<E extends OrderDetail> extends GenericRepositoryImpl<E>
+    implements OrderDetailRepository<E> {
   public void update(Long id, E updatedOrderDetail) throws Exception {
 
     super.update(id, updatedOrderDetail);

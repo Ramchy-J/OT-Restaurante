@@ -4,7 +4,8 @@ import com.ot.restaurant.entities.Order;
 import com.ot.restaurant.exceptions.OrderNotFoundException;
 import java.util.Optional;
 
-public class OrderRepositoryImpl<E extends Order> extends GenericRepositoryImpl<E> {
+public class OrderRepositoryImpl<E extends Order> extends GenericRepositoryImpl<E>
+    implements OrderRepository<E> {
 
   public void update(Long id, E updatedOrder) throws Exception {
 

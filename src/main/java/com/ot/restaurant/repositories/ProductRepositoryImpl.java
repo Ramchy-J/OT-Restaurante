@@ -4,7 +4,8 @@ import com.ot.restaurant.entities.Product;
 import com.ot.restaurant.exceptions.ProductNotFoundException;
 import java.util.Optional;
 
-public class ProductRepositoryImpl<E extends Product> extends GenericRepositoryImpl<E> {
+public class ProductRepositoryImpl<E extends Product> extends GenericRepositoryImpl<E>
+    implements ProductRepository<E> {
   public void update(Long id, E updatedProduct) throws Exception {
 
     super.update(id, updatedProduct);
