@@ -23,6 +23,10 @@ import com.ot.restaurant.repositories.OrderRepository;
 import com.ot.restaurant.repositories.OrderRepositoryImpl;
 import com.ot.restaurant.repositories.ProductRepository;
 import com.ot.restaurant.repositories.ProductRepositoryImpl;
+import com.ot.restaurant.seeder.AbstractSeeder;
+import com.ot.restaurant.seeder.CustomerSeeder;
+import com.ot.restaurant.seeder.SeederManager;
+import java.util.ArrayList;
 
 public class IoCContainerInitializer {
   private final IoCContainer ioc = IoCContainer.getInstance();
@@ -80,5 +84,16 @@ public class IoCContainerInitializer {
     final var productRepository = (ProductRepository<Product>) ioc.resolve("productRepository");
     final var productController = "productController";
     ioc.register(productController, new ProductController(productRepository));
+  }
+
+  public void initializeSeeders() throws Exception {
+    final var seeders = new ArrayList<AbstractSeeder>();
+
+    final var customerRepository = (CustomerRepository) ioc.resolve("customerRepository");
+    final var customerSeeder = new CustomerSeeder(customerRepository);
+    seeders.add(customerSeeder);
+
+    final var seederManager = "seederManager";
+    ioc.register(seederManager, new SeederManager(seeders));
   }
 }
