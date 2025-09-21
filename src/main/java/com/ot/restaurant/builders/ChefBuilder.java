@@ -10,6 +10,21 @@ public class ChefBuilder {
     return new ChefBuilder();
   }
 
+  public ChefBuilder withId(Long id) {
+    chef.setId(id);
+    return this;
+  }
+
+  public ChefBuilder withFirstName(String firstName) {
+    chef.setFirstName(firstName);
+    return this;
+  }
+
+  public ChefBuilder withLastName(String lastName) {
+    chef.setLastName(lastName);
+    return this;
+  }
+
   public ChefBuilder withExperience(Integer experience) {
     chef.setExperience(experience);
     return this;

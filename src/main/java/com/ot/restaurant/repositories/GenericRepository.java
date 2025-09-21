@@ -10,7 +10,7 @@ public interface GenericRepository<E extends Base> {
 
   Optional<E> findById(Long id, Status status) throws Exception;
 
-  void insert(E entity) throws Exception;
+  void insert(E entity);
 
   void update(Long id, E entity) throws Exception;
 
