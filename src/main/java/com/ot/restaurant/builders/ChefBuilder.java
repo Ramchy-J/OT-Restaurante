@@ -36,6 +36,13 @@ public class ChefBuilder {
   }
 
   public Chef build() {
-    return chef;
+    final var newChef = new Chef();
+    newChef.setId(this.chef.getId());
+    newChef.setFirstName(this.chef.getFirstName());
+    newChef.setLastName(this.chef.getLastName());
+    newChef.setExperience(this.chef.getExperience());
+    newChef.setStatus(this.chef.getStatus());
+
+    return newChef;
   }
 }

@@ -43,6 +43,15 @@ public class OrderDetailBuilder {
   }
 
   public OrderDetail build() {
-    return orderDetail;
+    final var newOrderDetail = new OrderDetail();
+    newOrderDetail.setId(this.orderDetail.getId());
+    newOrderDetail.setOrder(this.orderDetail.getOrder());
+    newOrderDetail.setProduct(this.orderDetail.getProduct());
+    newOrderDetail.setQuantity(this.orderDetail.getQuantity());
+    newOrderDetail.setUnitPrice(this.orderDetail.getUnitPrice());
+    newOrderDetail.setDiscount(this.orderDetail.getDiscount());
+    newOrderDetail.setStatus(this.orderDetail.getStatus());
+
+    return newOrderDetail;
   }
 }

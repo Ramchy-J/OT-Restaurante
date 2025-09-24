@@ -38,6 +38,14 @@ public class ProductBuilder {
   }
 
   public Product build() {
-    return product;
+    final var newProduct = new Product();
+    newProduct.setId(this.product.getId());
+    newProduct.setName(this.product.getName());
+    newProduct.setPrice(this.product.getPrice());
+    newProduct.setCategory(this.product.getCategory());
+    newProduct.setIngredients(this.product.getIngredients());
+    newProduct.setStatus(this.product.getStatus());
+
+    return newProduct;
   }
 }

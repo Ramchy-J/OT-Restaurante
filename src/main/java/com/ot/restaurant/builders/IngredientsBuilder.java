@@ -33,6 +33,13 @@ public class IngredientsBuilder {
   }
 
   public Ingredients build() {
-    return ingredients;
+    final var newIngredient = new Ingredients();
+    newIngredient.setId(this.ingredients.getId());
+    newIngredient.setName(this.ingredients.getName());
+    newIngredient.setQuantity(this.ingredients.getQuantity());
+    newIngredient.setUnit(this.ingredients.getUnit());
+    newIngredient.setStatus(this.ingredients.getStatus());
+
+    return newIngredient;
   }
 }
