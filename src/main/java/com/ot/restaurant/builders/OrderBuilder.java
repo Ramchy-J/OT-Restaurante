@@ -34,6 +34,13 @@ public class OrderBuilder {
   }
 
   public Order build() {
-    return order;
+    final var newOrder = new Order();
+    newOrder.setId(this.order.getId());
+    newOrder.setCustomerInfo(this.order.getCustomerInfo());
+    newOrder.setOrderDetails(this.order.getOrderDetails());
+    newOrder.setTotalAmount(this.order.getTotalAmount());
+    newOrder.setStatus(this.order.getStatus());
+
+    return newOrder;
   }
 }

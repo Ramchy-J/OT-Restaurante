@@ -38,6 +38,13 @@ public class CustomerBuilder {
   }
 
   public Customer build() {
-    return this.customer;
+    final var newCustomer = new Customer();
+    newCustomer.setId(this.customer.getId());
+    newCustomer.setFirstName(this.customer.getFirstName());
+    newCustomer.setLastName(this.customer.getLastName());
+    newCustomer.setPhoneNumber(this.customer.getPhoneNumber());
+    newCustomer.setStatus(this.customer.getStatus());
+
+    return newCustomer;
   }
 }
