@@ -10,7 +10,9 @@ public enum MeasureUnits {
   POUNDS("lb"),
   PINTS("pt"),
   QUARTS("qt"),
-  LITERS("l");
+  LITERS("l"),
+  BUNS("buns"),
+  SLICES("slc");
 
   private final String abbreviation;
 
