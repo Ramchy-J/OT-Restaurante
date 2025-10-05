@@ -26,6 +26,10 @@ import com.ot.restaurant.repositories.ProductRepositoryImpl;
 import com.ot.restaurant.seeder.AbstractSeeder;
 import com.ot.restaurant.seeder.ChefSeeder;
 import com.ot.restaurant.seeder.CustomerSeeder;
+import com.ot.restaurant.seeder.IngredientsSeeder;
+import com.ot.restaurant.seeder.OrderDetailSeeder;
+import com.ot.restaurant.seeder.OrderSeeder;
+import com.ot.restaurant.seeder.ProductSeeder;
 import com.ot.restaurant.seeder.SeederManager;
 import java.util.ArrayList;
 
@@ -97,6 +101,22 @@ public class IoCContainerInitializer {
     final var chefRepository = (ChefRepository) ioc.resolve("chefRepository");
     final var chefSeeder = new ChefSeeder(chefRepository);
     seeders.add(chefSeeder);
+
+    final var ingredientsRepository = (IngredientsRepository) ioc.resolve("ingredientsRepository");
+    final var ingredientsSeeder = new IngredientsSeeder(ingredientsRepository);
+    seeders.add(ingredientsSeeder);
+
+    final var productRepository = (ProductRepository) ioc.resolve("productRepository");
+    final var productSeeder = new ProductSeeder(productRepository);
+    seeders.add(productSeeder);
+
+    final var orderDetailRepository = (OrderDetailRepository) ioc.resolve("orderDetailRepository");
+    final var orderDetailSeeder = new OrderDetailSeeder(orderDetailRepository);
+    seeders.add(orderDetailSeeder);
+
+    final var orderRepository = (OrderRepository) ioc.resolve("orderRepository");
+    final var orderSeeder = new OrderSeeder(orderRepository);
+    seeders.add(orderSeeder);
 
     final var seederManager = "seederManager";
     ioc.register(seederManager, new SeederManager(seeders));
