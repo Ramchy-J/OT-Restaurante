@@ -12,6 +12,11 @@ public class OrderDetailBuilder {
     return new OrderDetailBuilder();
   }
 
+  public OrderDetailBuilder withId(Long id) {
+    orderDetail.setId(id);
+    return this;
+  }
+
   public OrderDetailBuilder withOrder(Order order) {
     orderDetail.setOrder(order);
     return this;

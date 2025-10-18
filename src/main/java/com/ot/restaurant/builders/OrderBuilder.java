@@ -13,6 +13,11 @@ public class OrderBuilder {
     return new OrderBuilder();
   }
 
+  public OrderBuilder withId(Long id) {
+    order.setId(id);
+    return this;
+  }
+
   public OrderBuilder withCustomerInfo(Customer customerInfo) {
     order.setCustomerInfo(customerInfo);
     return this;
