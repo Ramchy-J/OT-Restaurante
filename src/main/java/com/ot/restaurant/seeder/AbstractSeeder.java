@@ -4,13 +4,8 @@ import java.util.List;
 
 public abstract class AbstractSeeder<E> implements Seeder<E> {
 
-  public void seed() {
-    List<E> entities = null;
-    try {
-      entities = load();
-    } catch (Exception e) {
-      throw new RuntimeException(e);
-    }
+  public void seed() throws Exception {
+    List<E> entities = load();
     save(entities);
   }
 }

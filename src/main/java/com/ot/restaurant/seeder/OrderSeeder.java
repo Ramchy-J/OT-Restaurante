@@ -9,6 +9,7 @@ import com.ot.restaurant.ioc.IoCContainer;
 import com.ot.restaurant.repositories.CustomerRepository;
 import com.ot.restaurant.repositories.OrderDetailRepository;
 import com.ot.restaurant.repositories.OrderRepository;
+import com.ot.restaurant.utils.OrderUtil;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -38,36 +39,17 @@ public class OrderSeeder extends AbstractSeeder<Order> {
         orderDetailList.stream()
             .collect(Collectors.groupingBy(orderDetail -> orderDetail.getOrder().getId()));
 
-    return List.of(
-        OrderBuilder.create()
-            .withCustomerInfo((Customer) customerList.get(0))
-            .withOrderDetail(orderDetailMap.get(0L))
-            .withTotalAmount(calculateTotalAmount(orderDetailMap.get(0L)))
-            .withStatus(Status.ACTIVE)
-            .build(),
-        OrderBuilder.create()
-            .withCustomerInfo((Customer) customerList.get(1))
-            .withOrderDetail(orderDetailMap.get(1L))
-            .withTotalAmount(calculateTotalAmount(orderDetailMap.get(1L)))
-            .withStatus(Status.ACTIVE)
-            .build(),
-        OrderBuilder.create()
-            .withCustomerInfo((Customer) customerList.get(2))
-            .withOrderDetail(orderDetailMap.get(2L))
-            .withTotalAmount(calculateTotalAmount(orderDetailMap.get(2L)))
-            .withStatus(Status.ACTIVE)
-            .build());
-  }
-
-  private double calculateTotalAmount(List<OrderDetail> orderDetailList) {
-    double total =
-        orderDetailList.stream()
-            .mapToDouble(
-                detail ->
-                    detail.getQuantity() * (detail.getUnitPrice() * (1 - detail.getDiscount())))
-            .sum();
-
-    return total;
+    return orderDetailMap.entrySet().stream()
+        .map(
+            entry ->
+                OrderBuilder.create()
+                    .withId(entry.getKey())
+                    .withOrderDetail(entry.getValue())
+                    .withStatus(Status.ACTIVE)
+                    .withCustomerInfo(customerList.get(Math.toIntExact(entry.getKey())))
+                    .withTotalAmount(OrderUtil.calculateOrderTotalAmount(entry.getValue()))
+                    .build())
+        .toList();
   }
 
   @Override
