@@ -1,5 +1,6 @@
 package com.ot.restaurant.ioc;
 
+import com.ot.restaurant.ApplicationContext;
 import com.ot.restaurant.controllers.ChefController;
 import com.ot.restaurant.controllers.CustomerController;
 import com.ot.restaurant.controllers.IngredientsController;
@@ -41,6 +42,7 @@ public class IoCContainerInitializer {
   public void initialize() throws Exception {
     initializeRepositories();
     initializeControllers();
+    initializeApplicationContext();
   }
 
   private void initializeRepositories() throws Exception {
@@ -120,5 +122,10 @@ public class IoCContainerInitializer {
 
     final var seederManager = "seederManager";
     ioc.register(seederManager, new SeederManager(seeders));
+  }
+
+  public void initializeApplicationContext() throws Exception {
+    final var applicationContext = new ApplicationContext();
+    ioc.register("applicationContext", applicationContext);
   }
 }
