@@ -9,10 +9,7 @@ public class SeederManager {
     this.seeders = seeders;
   }
 
-  public void run() throws Exception {
-    for (AbstractSeeder seeder : seeders) {
-      seeder.seed();
-    }
-    // seeders.forEach(AbstractSeeder::seed);
+  public void run() {
+    seeders.forEach(AbstractSeeder::seed);
   }
 }

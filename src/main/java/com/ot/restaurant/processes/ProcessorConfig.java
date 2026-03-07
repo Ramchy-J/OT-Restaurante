@@ -1,25 +1,26 @@
 package com.ot.restaurant.processes;
 
 import com.ot.restaurant.ApplicationContext;
+import java.util.function.BiConsumer;
 
 public class ProcessorConfig {
 
   private Long id;
   private Long interval;
-  private Boolean onStart;
-  private Boolean onDestroy;
-  private Boolean beforeExecute;
-  private Boolean afterExecute;
+  private BiConsumer<ProcessorConfig, ApplicationContext> onStart;
+  private BiConsumer<ProcessorConfig, ApplicationContext> onDestroy;
+  private BiConsumer<ProcessorConfig, ApplicationContext> beforeExecute;
+  private BiConsumer<ProcessorConfig, ApplicationContext> afterExecute;
 
   public ProcessorConfig() {}
 
   public ProcessorConfig(
       Long id,
       Long interval,
-      Boolean onStart,
-      Boolean onDestroy,
-      Boolean beforeExecute,
-      Boolean afterExecute) {
+      BiConsumer<ProcessorConfig, ApplicationContext> onStart,
+      BiConsumer<ProcessorConfig, ApplicationContext> onDestroy,
+      BiConsumer<ProcessorConfig, ApplicationContext> beforeExecute,
+      BiConsumer<ProcessorConfig, ApplicationContext> afterExecute) {
     this.id = id;
     this.interval = interval;
     this.onStart = onStart;
@@ -36,19 +37,19 @@ public class ProcessorConfig {
     return interval;
   }
 
-  public Boolean getOnStart() {
+  public BiConsumer<ProcessorConfig, ApplicationContext> getOnStart() {
     return onStart;
   }
 
-  public Boolean getOnDestroy() {
+  public BiConsumer<ProcessorConfig, ApplicationContext> getOnDestroy() {
     return onDestroy;
   }
 
-  public Boolean getBeforeExecute() {
+  public BiConsumer<ProcessorConfig, ApplicationContext> getBeforeExecute() {
     return beforeExecute;
   }
 
-  public Boolean getAfterExecute() {
+  public BiConsumer<ProcessorConfig, ApplicationContext> getAfterExecute() {
     return afterExecute;
   }
 
@@ -60,31 +61,19 @@ public class ProcessorConfig {
     this.interval = interval;
   }
 
-  public void setOnStart(Boolean onStart) {
+  public void setOnStart(BiConsumer<ProcessorConfig, ApplicationContext> onStart) {
     this.onStart = onStart;
   }
 
-  public void setOnDestroy(Boolean onDestroy) {
+  public void setOnDestroy(BiConsumer<ProcessorConfig, ApplicationContext> onDestroy) {
     this.onDestroy = onDestroy;
   }
 
-  public void setBeforeExecute(Boolean beforeExecute) {
+  public void setBeforeExecute(BiConsumer<ProcessorConfig, ApplicationContext> beforeExecute) {
     this.beforeExecute = beforeExecute;
   }
 
-  public void setAfterExecute(Boolean afterExecute) {
+  public void setAfterExecute(BiConsumer<ProcessorConfig, ApplicationContext> afterExecute) {
     this.afterExecute = afterExecute;
   }
-
-  public void handleOnStart(
-      ProcessorConfig processorConfig, ApplicationContext applicationContext) {}
-
-  public void handleOnDestroy(
-      ProcessorConfig processorConfig, ApplicationContext applicationContext) {}
-
-  public void handleBeforeExecute(
-      ProcessorConfig processorConfig, ApplicationContext applicationContext) {}
-
-  public void handleAfterExecute(
-      ProcessorConfig processorConfig, ApplicationContext applicationContext) {}
 }

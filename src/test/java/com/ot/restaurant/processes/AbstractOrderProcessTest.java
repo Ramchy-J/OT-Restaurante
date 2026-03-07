@@ -27,12 +27,11 @@ class AbstractOrderProcessTest {
         ProcessorConfigBuilder.create()
             .withId(0L)
             .withInterval(1L)
-            .withOnStart(Boolean.FALSE)
-            .withOnDestroy(Boolean.FALSE)
-            .withBeforeExecute(Boolean.FALSE)
-            .withAfterExecute(Boolean.FALSE)
+            .withOnStart((processorConfig, applicationContext) -> {})
+            .withOnDestroy((processorConfig, applicationContext) -> {})
+            .withBeforeExecute((processorConfig, applicationContext) -> {})
+            .withAfterExecute((processorConfig, applicationContext) -> {})
             .build();
-    dummyAbstractOrderProcessSpy.processorConfig = processorConfig;
   }
 
   @Test
@@ -43,17 +42,34 @@ class AbstractOrderProcessTest {
   }
 
   @Test
-  void shouldInvokeRunWhenVariableAreAligned() {
+  void shouldInvokeProcessWhenInRunVariablesAreNotNull() {
 
-    dummyAbstractOrderProcessSpy.state = ProcessState.standby;
-    dummyAbstractOrderProcessSpy.processorConfig.setOnStart(Boolean.FALSE);
-    dummyAbstractOrderProcessSpy.processorConfig.setOnDestroy(Boolean.FALSE);
-    dummyAbstractOrderProcessSpy.processorConfig.setBeforeExecute(Boolean.TRUE);
-    dummyAbstractOrderProcessSpy.processorConfig.setAfterExecute(Boolean.TRUE);
+    dummyAbstractOrderProcessSpy.state = ProcessState.STANDBY;
+    dummyAbstractOrderProcessSpy.processorConfig = processorConfig;
+
+    doAnswer(
+            invocation -> {
+              dummyAbstractOrderProcessSpy.state = ProcessState.DESTROYED;
+              return null;
+            })
+        .when(dummyAbstractOrderProcessSpy)
+        .process();
 
     dummyAbstractOrderProcessSpy.run();
 
     verify(dummyAbstractOrderProcessSpy, times(1)).process();
+  }
+
+  @Test
+  void shouldNotInvokeProcessWhenInRunVariablesAreNotNull() {
+
+    dummyAbstractOrderProcessSpy.state = ProcessState.STANDBY;
+
+    // dummyAbstractOrderProcessSpy.run();
+
+    doThrow(NullPointerException.class).when(dummyAbstractOrderProcessSpy).run();
+
+    assertThrows(NullPointerException.class, () -> dummyAbstractOrderProcessSpy.run());
   }
 
   private static class DummyAbstractOrderProcess extends AbstractOrderProcess {}

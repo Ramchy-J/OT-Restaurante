@@ -1,9 +1,9 @@
 package com.ot.restaurant.processes;
 
 public enum ProcessState {
-  pause("pause"),
-  destroyed("destroyed"),
-  standby("standby");
+  PAUSE("pause"),
+  DESTROYED("destroyed"),
+  STANDBY("standby");
 
   private final String state;
 

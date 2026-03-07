@@ -1,6 +1,8 @@
 package com.ot.restaurant.builders;
 
+import com.ot.restaurant.ApplicationContext;
 import com.ot.restaurant.processes.ProcessorConfig;
+import java.util.function.BiConsumer;
 
 public class ProcessorConfigBuilder {
 
@@ -22,22 +24,26 @@ public class ProcessorConfigBuilder {
     return this;
   }
 
-  public ProcessorConfigBuilder withOnStart(Boolean onStart) {
+  public ProcessorConfigBuilder withOnStart(
+      BiConsumer<ProcessorConfig, ApplicationContext> onStart) {
     processorConfig.setOnStart(onStart);
     return this;
   }
 
-  public ProcessorConfigBuilder withOnDestroy(Boolean onDestroy) {
+  public ProcessorConfigBuilder withOnDestroy(
+      BiConsumer<ProcessorConfig, ApplicationContext> onDestroy) {
     processorConfig.setOnDestroy(onDestroy);
     return this;
   }
 
-  public ProcessorConfigBuilder withBeforeExecute(Boolean beforeExecute) {
+  public ProcessorConfigBuilder withBeforeExecute(
+      BiConsumer<ProcessorConfig, ApplicationContext> beforeExecute) {
     processorConfig.setBeforeExecute(beforeExecute);
     return this;
   }
 
-  public ProcessorConfigBuilder withAfterExecute(Boolean afterExecute) {
+  public ProcessorConfigBuilder withAfterExecute(
+      BiConsumer<ProcessorConfig, ApplicationContext> afterExecute) {
     processorConfig.setAfterExecute(afterExecute);
     return this;
   }
